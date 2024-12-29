@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").innerHTML = ""; // Clearing the div
+      //Error: Trying to access a non-existent element after clearing innerHTML
+      document.getElementById("myDiv").appendChild(document.createElement("p")).innerHTML = "This text is appended after clearing"; 
+    }
+  </script>
+</body>
+</html>
