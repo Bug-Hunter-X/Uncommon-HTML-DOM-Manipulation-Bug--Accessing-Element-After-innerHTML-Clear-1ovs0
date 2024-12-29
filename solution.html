@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").innerHTML = ""; // Clearing the div
+      setTimeout(function() {
+        document.getElementById("myDiv").appendChild(document.createElement("p")).innerHTML = "This text is appended after clearing"; 
+      }, 0); //Using setTimeout to handle the asynchronous DOM update.
+    }
+  </script>
+</body>
+</html>
